@@ -5,13 +5,14 @@ import SignupScreen from '../screens/auth/SignupScreen.js';
 import SignupValidationScreen from '../screens/auth/SignupValidationScreen.js';
 import SignupValidationSucessScreen from '../screens/auth/SignupValidationSucessScreen.js';
 import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen.js';
+import NewPasswordScreen from '../screens/auth/NewPasswordScreens.js';
 
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="ForgotPassword">
+        <Stack.Navigator initialRouteName="NewPassword">
             <Stack.Screen
                 name="Login"
                 component={LoginScreen}
@@ -35,6 +36,11 @@ const AppNavigator = () => {
             <Stack.Screen
                 name="ForgotPassword"
                 component={ForgotPasswordScreen}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="NewPassword"
+                component={NewPasswordScreen}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>
