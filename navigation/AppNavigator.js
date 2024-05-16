@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../screens/auth/LoginScreen.js';
+import TermsScreen from '../screens/auth/TermsScreen.js';
 import SignupScreen from '../screens/auth/SignupScreen.js';
 import SignupValidationScreen from '../screens/auth/SignupValidationScreen.js';
 import SignupValidationSucessScreen from '../screens/auth/SignupValidationSucessScreen.js';
@@ -13,10 +14,15 @@ const Stack = createStackNavigator();
 
 const AppNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="NewPasswordSucess">
+        <Stack.Navigator initialRouteName="Terms">
             <Stack.Screen
                 name="Login"
                 component={LoginScreen}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="Terms"
+                component={TermsScreen}
                 options={{ headerShown: false }}
             />
             <Stack.Screen
