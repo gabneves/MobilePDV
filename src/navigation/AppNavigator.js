@@ -1,20 +1,20 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from '../screens/auth/LoginScreen.js';
-import TermsScreen from '../screens/auth/TermsScreen.js';
-import SignupScreen from '../screens/auth/SignupScreen.js';
-import SignupValidationScreen from '../screens/auth/SignupValidationScreen.js';
-import SignupValidationSucessScreen from '../screens/auth/SignupValidationSucessScreen.js';
-import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen.js';
-import NewPasswordScreen from '../screens/auth/NewPasswordScreen.js';
-import NewPasswordSucessScreen from '../screens/auth/NewPasswordSucessScreens.js';
+import LoginScreen from '../../screens/auth/LoginScreen.js';
+import TermsScreen from '../../screens/auth/TermsScreen.js';
+import SignupScreen from '../../screens/auth/SignupScreen.js';
+import SignupValidationScreen from '../../screens/auth/SignupValidationScreen.js';
+import SignupValidationSucessScreen from '../../screens/auth/SignupValidationSucessScreen.js';
+import ForgotPasswordScreen from '../../screens/auth/ForgotPasswordScreen.js';
+import NewPasswordScreen from '../../screens/auth/NewPasswordScreen.js';
+import NewPasswordSucessScreen from '../../screens/auth/NewPasswordSucessScreens.js';
 
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName="Terms">
+        <Stack.Navigator initialRouteName="Login">
             <Stack.Screen
                 name="Login"
                 component={LoginScreen}
