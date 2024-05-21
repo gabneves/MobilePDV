@@ -57,7 +57,7 @@ export default function SignupValidationScreen() {
                     </View>
 
                     <View style={styles.buttonContainer}>
-                        <TouchableOpacity style={styles.validationButton}>
+                        <TouchableOpacity style={styles.validationButton} onPress={() => navigation.navigate('SignupValidationSucess')} >
                             <Text style={styles.validationButtonText}>validar</Text>
                         </TouchableOpacity>
                     </View>

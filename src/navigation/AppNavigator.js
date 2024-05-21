@@ -10,6 +10,7 @@ import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen.js';
 import NewPasswordScreen from '../screens/auth/NewPasswordScreen.js';
 import NewPasswordSucessScreen from '../screens/auth/NewPasswordSucessScreens.js';
 import HomeScreen from '../screens/main/HomeScreen.js';
+import ProfileScreen from '../screens/main/ProfileScreen.js';
 
 
 const Stack = createStackNavigator();
@@ -17,7 +18,7 @@ const Stack = createStackNavigator();
 const AppNavigator = () => {
     return (
         <AuthProvider>
-            <Stack.Navigator initialRouteName="Login">
+            <Stack.Navigator initialRouteName="Profile">
                 <Stack.Screen
                     name="Login"
                     component={LoginScreen}
@@ -61,6 +62,11 @@ const AppNavigator = () => {
                 <Stack.Screen
                     name="Home"
                     component={HomeScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Profile"
+                    component={ProfileScreen}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>

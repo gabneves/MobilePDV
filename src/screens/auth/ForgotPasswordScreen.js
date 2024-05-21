@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import BgScreen from '../../components/BgScreen';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../../services/firebaseConfig';
 import { useFont } from '../../context/FontContext';
 
 export default function ForgotPasswordScreen() {
     const [email, setEmail] = useState('');
     const [codes, setCodes] = useState(['', '', '', '', '', '']);
     const [pinCode, setPinCode] = useState(['', '', '', '']);
+    const [error, setError] = useState('');
     const fontsLoaded = useFont();
     const navigation = useNavigation();
 
@@ -27,6 +30,29 @@ export default function ForgotPasswordScreen() {
         setPinCode(newPinCode);
     };
 
+    const handleSendEmail = async () => {
+        // Expressão regular para validar o formato do email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+        // Verifica se o email é válido
+        if (!emailRegex.test(email)) {
+            setError('Por favor, insira um email válido.');
+            return;
+        }
+    
+        try {
+            // Envia o email de redefinição de senha
+            await sendPasswordResetEmail(auth, email);
+    
+            // Limpa o erro e navega para a tela NewPassword
+            setError('');
+            navigation.navigate('NewPassword');
+        } catch (error) {
+            setError('Ocorreu um erro ao enviar o email de redefinição de senha. Tente novamente mais tarde.');
+            console.error('Error sending password reset email:', error);
+        }
+    };
+
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
             <BgScreen>
@@ -40,6 +66,8 @@ export default function ForgotPasswordScreen() {
                         <Image source={require('../../assets/icons/ArrowLeft.svg')} style={styles.iconArrow} />
                         <Text style={styles.backText}>voltar</Text>
                     </TouchableOpacity>
+
+                    {error ? <Text style={styles.error}>{error}</Text> : null}
 
                     <View style={styles.inputContainer}>
                         <Text style={styles.inputTitle}>email</Text>
@@ -84,7 +112,7 @@ export default function ForgotPasswordScreen() {
                     </View>
 
                     <View style={styles.buttonContainer}>
-                        <TouchableOpacity style={styles.loginButton}>
+                        <TouchableOpacity style={styles.loginButton} onPress={handleSendEmail}>
                             <Text style={styles.loginButtonText}>enviar</Text>
                         </TouchableOpacity>
                     </View>
@@ -226,4 +254,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: 'Poppins-Light',
     },
+    error: {
+        color: '#DB3571',
+        fontFamily: 'Poppins-Light',
+        fontSize: 12,
+        marginBottom: 19,
+        marginTop: 5,
+      },
 });

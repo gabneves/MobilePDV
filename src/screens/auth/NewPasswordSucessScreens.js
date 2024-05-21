@@ -26,7 +26,7 @@ export default function NewPasswordSucessScreen() {
                     />
 
                     <View style={styles.infoContainer}>
-                        <Text style={styles.infoText}>Sua senha foi recuperar com sucesso.</Text>
+                        <Text style={styles.infoText}>Sua senha foi recuperada com sucesso.</Text>
                         <Text style={styles.infoTextSub}>Aproveite para atualizar os seus smart lockers e autenticar a sua biometria após o login, assim ficará muito mais fácil o seu login.</Text>
                         <Text style={styles.infoTextSub}>A gente sabe como decorar senha é chato, mas faz parte da dos seus dados.</Text>
                     </View>

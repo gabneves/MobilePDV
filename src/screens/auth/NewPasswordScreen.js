@@ -65,7 +65,7 @@ export default function ForgotPasswordScreen() {
                     </View>
 
                     <View style={styles.buttonContainer}>
-                        <TouchableOpacity style={styles.saveButton}>
+                        <TouchableOpacity style={styles.saveButton} onPress={() => navigation.navigate('NewPasswordSucess')}>
                             <Text style={styles.saveButtonText}>salvar</Text>
                         </TouchableOpacity>
                     </View>
