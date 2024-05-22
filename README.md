@@ -3,10 +3,6 @@
 ## Links
 :arrow_forward:<a href="https://www.youtube.com/playlist?list=PLnsC4Y30EcL7rDCMiPKU8FRtReYc_HDMP">Pitch</a>
 
-:arrow_forward:<a href="https://drive.google.com/drive/folders/1qL6oUhFUKxDSTBsUhUIxdZKEuzpiH_0q?usp=drive_link">Pasta com todos os arquivos SPRINT 1</a>
-
-:arrow_forward:<a href="https://drive.google.com/drive/folders/18JcIvtDyWuNE8_Ao8Nt3RQYbWNaIMpqZ?usp=sharing">Pasta com todos os arquivos SPRINT 2</a>
-
 :arrow_forward:<a href="https://drive.google.com/file/d/1gI5UWkXy5kR2MXUyslQ6f6D-_qPkeEQE/view?usp=sharing">Apresentação TAQUI pdf</a>
 
 :arrow_forward:<a href="https://drive.google.com/file/d/1S6-XHLDcZvDVnLS92_xKNpvpEJ3percc/view">Apresentação TAQUI doc</a>
