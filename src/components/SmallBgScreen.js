@@ -4,7 +4,7 @@ import { View, Image, StyleSheet, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 const FullBgScreen = ({ children }) => {
-    const whiteBoxHeight = height * 0.88; // 70% da altura da tela
+    const whiteBoxHeight = height * 0.30; // 30% da altura da tela
 
     return (
         <View style={styles.container}>            

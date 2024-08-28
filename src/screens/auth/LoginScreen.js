@@ -33,46 +33,41 @@ export default function LoginScreen() {
     loadSavedLogin();
   }, []);
 
-  // Função para lidar com o envio do formulário de login
   const handleLogin = async () => {
-    // Verifique se os campos de e-mail e senha estão preenchidos
     if (email === '' || password === '') {
       setErrorMessage('Por favor, preencha todos os campos.');
       return;
     }
 
-    // Limpe qualquer mensagem de erro anterior
     setErrorMessage('');
 
-    // Autenticar o usuário usando o Firebase Authentication
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         const user = userCredential.user;
-        let displayName = 'Usuário'; // Valor padrão caso não haja displayName
+        let displayName = 'Usuário'; 
 
-        // Obter o nome do usuário se estiver disponível
+
         if (user && user.displayName) {
           displayName = user.displayName;
         }
 
-        // Salvar as informações de login se o checkbox estiver marcado
+      
         if (isChecked) {
           AsyncStorage.setItem('savedEmail', email);
           AsyncStorage.setItem('savedPassword', password);
           AsyncStorage.setItem('savedRememberMe', 'true');
-          AsyncStorage.setItem('userName', displayName); // Salvar o nome do usuário
+          AsyncStorage.setItem('userName', displayName); 
         } else {
           AsyncStorage.removeItem('savedEmail');
           AsyncStorage.removeItem('savedPassword');
           AsyncStorage.removeItem('savedRememberMe');
-          AsyncStorage.removeItem('userName'); // Limpar o nome do usuário
+          AsyncStorage.removeItem('userName'); 
         }
 
-        // Redirecionar para a tela de home
+       
         navigation.navigate('Home');
       })
       .catch((error) => {
-        // Caso haja um erro na autenticação, exibir uma mensagem de erro
         setErrorMessage('Seu e-mail e/ou sua senha não correspondem com os dados cadastrados. Tente novamente.');
         console.error('Error during login:', error);
       });
